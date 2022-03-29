@@ -5,19 +5,15 @@ using namespace std;
 int main(){
   int n;
   cin>>n;
-  bool primes[n+1];
-  memset(primes, true, sizeof(primes));
-  primes[0]=0;
-  primes[1]=0;
-  for(int p=2; p*p<=n; p++){
-    if(primes[p]==true){
-      for(int i=p*2; i<=n; i+=p){
-        primes[i]=false;
+  for(int i=2; i<=n; i++){
+    bool ok=true;
+    for(int j=2;j*j<=i;j++){
+      if(i%j==0){
+        ok=false;
+        break;
       }
     }
-  }
-  for(int i=0; i<=n; i++){
-    if(primes[i]==true){
+    if(ok){
       cout<<i<<" ";
     }
   }

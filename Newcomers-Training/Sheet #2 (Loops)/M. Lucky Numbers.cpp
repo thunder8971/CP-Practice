@@ -5,7 +5,7 @@ using namespace std;
 int main(){
   int a,b;
   cin>>a>>b;
-  vector<int> lucky;
+  int counter=0;
   for(int i=a;i<=b;i++){
     string aux=to_string(i);
     bool flag=true;
@@ -16,15 +16,12 @@ int main(){
       }
     }
     if(flag){
-      lucky.push_back(i);
+      counter++;
+      cout<<i<<" ";
     }
   }
-  if(lucky.size()==0){
-    cout<<"-1"<<ln;
-  }else{
-    for(auto e:lucky){
-      cout<<e<<" ";
-    }
+  if(counter==0){
+    cout<< -1 <<ln;
   }
   return 0;
 }
